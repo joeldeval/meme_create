@@ -18,6 +18,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
 		<link rel="stylesheet" href="<?= $cssFile ?>" />
+		<link rel="stylesheet" href="<?= $cssSlider ?>" />
 
 		<link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="/icon/apple-icon-60x60.png">
@@ -40,4 +41,4 @@
 	</head>
 	<body>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="jquery.flexslider.js"></script>
+<script src="<?= $jsSlider ?>"></script>
