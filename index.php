@@ -60,7 +60,7 @@
 		<div class="col-md-6 abajo">
 	  	
 			<canvas id="c" width="460" height="500"></canvas>
-			<input type="hidden" value="" id="producto" name="id" />
+			<input type="hidden" id="producto" name="id" />
 			
 			<a id="descargar" class="btn btn-primary" >Descargar MEME</a>
 
@@ -109,7 +109,11 @@
 			bottomText.text = event.target.value.toUpperCase();
 		}
 		var imagenSeleccionada = document.getElementById('producto').value;
-		// console.log(imagenSeleccionada);
+
+		if(imagenSeleccionada == ""){
+			
+			imagenSeleccionada = "joel.jpg"
+		}		
 		updateMeme(imagenSeleccionada);
 	}
 	
@@ -163,6 +167,9 @@
 	*/
 	document.getElementById('descargar').addEventListener('click', function() {
 		var imagen = $("#producto").val();
+		if(imagen == ""){
+			imagen = "joel.jpg"
+		}
 		var fecha = new Date();
 
 	    downloadCanvas(this, 'c', "meme_"+fecha.getDate() + imagen);
