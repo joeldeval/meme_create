@@ -1,6 +1,6 @@
 <?php require_once('helper.php'); ?>
 <?php
-	$arr = array('title'=>'Memes 1.0', 'cssFile'=>'memeStyle.css');
+	$arr = array('title'=>'Memes 1.1', 'cssFile'=>'memeStyle.css');
 	createTemplate($arr, 'header');
 ?>
 <div class="container">
@@ -11,6 +11,7 @@
 		<form class="form-horizontal">
 			<div class="form-group">
 				<h4 style="font-size: 1em;">SELECCIONA UNA IMAGEN</h4>
+				<h4 style="font-size: .8em;">y mueve con flechas de teclado</h4>
 				<div class="flexslider" style="width: 100%">
                 <ul class="slides">
 				
@@ -43,15 +44,15 @@
             </div>
 			</div>
 			<div class="form-group">
-				<label for="topLabel" class="col-sm-4 control-label">Arriba: </label>
+				<label for="topLabel" class="col-sm-4 control-label">Texto de arriba: </label>
 				<div class="col-sm-8">
-					<input type="text" id="topLabel" class="form-control" oninput="textUpdate(event)" />
+					<input type="text" id="topLabel" class="form-control" placeholder="Ej. Y si techamos GDL" oninput="textUpdate(event)" />
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="bottomLabel" class="col-sm-4 control-label">Abajo: </label>
+				<label for="bottomLabel" class="col-sm-4 control-label">Texto de abajo: </label>
 				<div class="col-sm-8">
-					<input type="text" id="bottomLabel" class="form-control" oninput="textUpdate(event)" />
+					<input type="text" id="bottomLabel" class="form-control" placeholder="Ej. y PUM! wey adios SOL" oninput="textUpdate(event)" />
 				</div>
 			</div>
 		</form>
@@ -111,7 +112,7 @@
 		var imagenSeleccionada = document.getElementById('producto').value;
 
 		if(imagenSeleccionada == ""){
-			
+
 			imagenSeleccionada = "joel.jpg"
 		}		
 		updateMeme(imagenSeleccionada);
