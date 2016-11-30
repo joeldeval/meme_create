@@ -10,18 +10,37 @@
 		<h3><?= $arr['title'] ?></h3>
 		<form class="form-horizontal">
 			<div class="form-group">
-				<label for="imageSelector" class="col-sm-4 control-label">Selecciona una imagen: </label>
-				<div class="col-sm-8">
-					<select class="form-control" id="imageSelector" onchange="updateMeme()">
-						<option value="images/gabriel.jpg">Gabriel</option>
-						<option value="images/cuatri.jpg">Cuatri</option>
-						<option value="images/chavita.jpg">Chavita</option>
-						<option value="images/poncho.jpg">Poncho</option>
-						<option value="images/sicario.jpg">Sicario</option>
-						<option value="images/yannik.jpg">Yannik</option>
-						<option value="images/diego.jpg">Diego</option>
-					</select>
-				</div>
+				<h4 style="font-size: 1em;">SELECCIONA UNA IMAGEN</h4>
+				<div class="flexslider" style="width: 100%">
+                <ul class="slides">
+				
+				<?php
+
+				function listar_archivos($carpeta){
+			   		if(is_dir($carpeta)){
+				        if($dir = opendir($carpeta)){
+				            while(($archivo = readdir($dir)) !== false){
+				                if($archivo != '.' && $archivo != '..' && $archivo != '.htaccess'){
+				               
+				                    echo '<li>
+                                        <div style="width:100%; ">
+                                        	<div class="img-slide" id="'.$archivo.'" style="width:120px">
+                                                <img style="width: 100px; height: 100px;" src="'.$carpeta.'/'.$archivo.'" />
+                                            </div>
+                                        </div>
+                                    </li>';
+				                }
+				            }
+				            closedir($dir);
+				        }
+				    }
+				}
+			 
+				echo listar_archivos('images/');
+				?>
+              
+                </ul>
+            </div>
 			</div>
 			<div class="form-group">
 				<label for="topLabel" class="col-sm-4 control-label">Arriba: </label>
@@ -40,16 +59,16 @@
 
 		<div class="col-md-6 abajo">
 	  	
-			<canvas id="c" width="475" height="500"></canvas>
+			<canvas id="c" width="460" height="500"></canvas>
+			<input type="hidden" value="" id="producto" name="id" />
 			<p class="instructions">Guarda la imágen con click derecho y "Guardar imagen como..."</p>
 
 	  	</div>
-	  
-
 		
 	</div>
 
 </div>
+
 <script type="text/javascript">
 	var canvas = document.querySelector('#c');
 	var	context = canvas.getContext('2d');
@@ -78,7 +97,7 @@
 	var bottomText = new Text();
 
 	window.onload = function(){ //initial image setup
-		updateMeme();
+		updateMeme("joel.jpg");
 	};
 
 	function textUpdate(event){
@@ -88,21 +107,23 @@
 		} else {
 			bottomText.text = event.target.value.toUpperCase();
 		}
-		updateMeme();
+		var imagenSeleccionada = document.getElementById('producto').value;
+		// console.log(imagenSeleccionada);
+		updateMeme(imagenSeleccionada);
 	}
 	
-	function updateMeme(){
+	function updateMeme(imagen){
 		context.clearRect(0, 0, canvas.width, canvas.height);
-		loadMemeImage();
+		loadMemeImage("images/" + imagen);
 	}
 	
-	function loadMemeImage(){
+	function loadMemeImage(rutaImagen){
 		img = new Image();
 		img.onload = function(){
 			context.drawImage(img, 0, 0, canvas.width, canvas.height);
 			loadMemeText();
 		};
-		img.src = document.querySelector('#imageSelector').value;
+		img.src = rutaImagen;
 	}
 
 
@@ -129,5 +150,40 @@
 		context.fillText(bottomText.text, canvas.width/2, canvas.height-20);
 		context.strokeText(bottomText.text, canvas.width/2, canvas.height-20);
 	}
+
+	  $(document).ready(function () {
+        //se declaran variables
+        var producto = $("#producto").val();
+        // muestra la flecha roja en el paso
+        $(".red-arrow:not(.select-producto)").css("visibility", "hidden");
+
+        // detecta si eligió un producto y pinta el marco azul
+        if (producto != "" || producto != undefined) {
+            $(".img-slide").css("background-color", "");
+            $("#" + producto).css("background-color", "#185CA6");
+        }
+
+        //slider
+        $('.flexslider').flexslider({
+            animation: "slide",
+            animationLoop: false,
+            itemWidth: 250,
+            itemMargin: 3,
+            slideshow: false,
+            controlNav: false,
+            directionNav: true
+        });
+    });
+	     // click en algún producto
+    $(".img-slide").click(function () {
+        //se declaran variables
+        var imagen = $(this).attr('id');
+        // console.log(imagen)
+        updateMeme(imagen);
+        // pinta el marco azul del producto que eligió
+        $("#producto").val(imagen);
+        $(".img-slide").css("background-color", "");
+        $(this).css("background-color", "#185CA6");
+    });
 </script>
 <?php createTemplate(array(), 'footer'); ?>
