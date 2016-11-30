@@ -7,10 +7,10 @@ Para ver el ejemplo entra a http://www.jvaldivia.org/memes
 
 # PASOS PARA USARLO
 
-	-	Clona el proyecto con el siguiente comando
+- Clona el proyecto con el siguiente comando
 
 		$ git clone https://github.com/joeldeval/meme_create.git
 
-	-	Agrega la carpeta de "images" en la raiz del proyecto
+- Agrega la carpeta de "images" en la raiz del proyecto
 
-	-	Agrega imagenes dentro de la carpeta y LISTO!!
+- Agrega imagenes dentro de la carpeta y LISTO!!
