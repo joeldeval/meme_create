@@ -5,7 +5,7 @@
 ?>
 <div class="container">
 	<div class="row">
-	
+
 	  <div class="col-md-6">
 		<h3><?= $arr['title'] ?></h3>
 		<form class="form-horizontal">
@@ -84,9 +84,9 @@
 	function textUpdate(event){
 		// find out which element fired event (event.target.id) and assign inputted text with corresponding global text variable (topText / bottomText)
 		if (event.target.id == "topLabel"){
-			topText.text = event.target.value;
+			topText.text = event.target.value.toUpperCase();
 		} else {
-			bottomText.text = event.target.value;
+			bottomText.text = event.target.value.toUpperCase();
 		}
 		updateMeme();
 	}
