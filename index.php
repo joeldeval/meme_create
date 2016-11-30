@@ -63,7 +63,7 @@
 			<canvas id="c" width="460" height="500"></canvas>
 			<input type="hidden" id="producto" name="id" />
 			
-			<a id="descargar" class="btn btn-primary" >Descargar MEME</a>
+			<a id="descargar" download-button class="btn btn-primary" >Descargar MEME</a>
 
 	  	</div>
 		
@@ -73,7 +73,9 @@
 
 <script type="text/javascript">
 	var canvas = document.querySelector('#c');
+
 	var	context = canvas.getContext('2d');
+
 	context.textAlign = 'center';
 	context.fillStyle = 'white';
 	context.strokeStyle = 'black';
@@ -191,11 +193,11 @@
         //slider
         $('.flexslider').flexslider({
             animation: "slide",
-            animationLoop: false,
-            itemWidth: 250,
+            animationLoop: true,
+            itemWidth: 110,
             itemMargin: 3,
-            slideshow: false,
-            controlNav: false,
+            slideshow: true,
+            controlNav: true,
             directionNav: true
         });
     });
