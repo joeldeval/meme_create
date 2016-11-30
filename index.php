@@ -61,7 +61,8 @@
 	  	
 			<canvas id="c" width="460" height="500"></canvas>
 			<input type="hidden" value="" id="producto" name="id" />
-			<p class="instructions">Guarda la imágen con click derecho y "Guardar imagen como..."</p>
+			
+			<a id="descargar" class="btn btn-primary" >Descargar MEME</a>
 
 	  	</div>
 		
@@ -151,6 +152,22 @@
 		context.strokeText(bottomText.text, canvas.width/2, canvas.height-20);
 	}
 
+	function downloadCanvas(link, canvasId, filename) {
+    	link.href = document.getElementById(canvasId).toDataURL();
+	    link.download = filename;
+	}
+
+	/** 
+	 * The event handler for the link's onclick event. We give THIS as a
+	 * parameter (=the link element), ID of the canvas and a filename.
+	*/
+	document.getElementById('descargar').addEventListener('click', function() {
+		var imagen = $("#producto").val();
+		var fecha = new Date();
+
+	    downloadCanvas(this, 'c', "meme_"+fecha.getDate() + imagen);
+	}, false);
+
 	  $(document).ready(function () {
         //se declaran variables
         var producto = $("#producto").val();
@@ -185,5 +202,7 @@
         $(".img-slide").css("background-color", "");
         $(this).css("background-color", "#185CA6");
     });
+
+
 </script>
 <?php createTemplate(array(), 'footer'); ?>
