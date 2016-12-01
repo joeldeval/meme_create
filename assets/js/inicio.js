@@ -30,7 +30,7 @@
 
 	window.onload = function(){ 
 		// imagen inicial
-		actualizaMeme("joel.jpg");
+		actualizaMeme("images/grillo.jpg");
 	};
 
 	function actualizaTexto(evento){
@@ -44,14 +44,14 @@
 
 		if(imagenSeleccionada == ""){
 
-			imagenSeleccionada = "joel.jpg"
+			imagenSeleccionada = "images/grillo.jpg"
 		}		
 		actualizaMeme(imagenSeleccionada);
 	}
 	
-	function actualizaMeme(imagen){
+	function actualizaMeme(ruta){
 		contenidoCanvas.clearRect(0, 0, imgCanvas.width, imgCanvas.height);
-		cargaImagenMeme("images/" + imagen);
+		cargaImagenMeme(ruta);
 	}
 	
 	function cargaImagenMeme(rutaImagen){
@@ -109,7 +109,7 @@
 		var imagen = $("#imagenCargada").val();
 
 		if(imagen == ""){
-			imagen = "joel.jpg"
+			imagen = "grillo.jpg"
 		}
 		var fecha = new Date();
 
@@ -146,9 +146,9 @@
         //se declaran variables
         var imagen = $(this).attr('id');
         // console.log(imagen)
-        actualizaMeme(imagen);
+        actualizaMeme("images/" +imagen);
         // pinta el marco azul del producto que eligió
-        $("#imagenCargada").val(imagen);
+        $("#imagenCargada").val("images/" + imagen);
         $(".img-slide").css("background-color", "");
         $(this).css("background-color", "#185CA6");
     });
