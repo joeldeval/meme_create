@@ -2,6 +2,10 @@ body {
 	text-align: center;
 }
 
+@font-face {
+    font-family: "ImpactBold";
+    src: url(../fonts/impact.ttf) format("truetype");
+}
 .fondo{
 	/*background-color: #eee;*/
 }
@@ -17,7 +21,7 @@ body {
 footer {
 	color: white;
 	height: 200px;
-	font-family: 'Impact';
+	font-family: 'ImpactBold';
 	text-align: center;
 	font-size: 1.2em;
 	padding-top: 50px;

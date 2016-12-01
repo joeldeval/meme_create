@@ -18,12 +18,16 @@
 		/** ampliar texto dentro de canvas */
 		ampliar : function(){
 			this.size += 10;
-			contenidoCanvas.font = this.size + "pt Impact";
+			contenidoCanvas.lineWidth = 3.5;
+
+			contenidoCanvas.font = this.size + "pt ImpactBold";
 		},
 		/** contrae texto dentro de canvas */
 		contraer : function(){
 			this.size -= 5;
-			contenidoCanvas.font = this.size + "pt Impact";
+			contenidoCanvas.lineWidth = 2;
+
+			contenidoCanvas.font = this.size + "pt ImpactBold";
 		}
 	};
 
@@ -68,7 +72,7 @@
 
 	function cargaTextoMeme(){
 		//texto superior
-		contenidoCanvas.font = textoSuperior.size + "pt Impact";
+		contenidoCanvas.font = textoSuperior.size + "pt ImpactBold";
 
 		// ancho de texto antes de ser escrito en el lienzo
 		var anchoTexto = contenidoCanvas.measureText(textoSuperior.text).width; 
@@ -84,7 +88,7 @@
 		contenidoCanvas.strokeText(textoSuperior.text, imgCanvas.width/2, textoSuperior.size+20);
 
 		//texto inferior
-		contenidoCanvas.font = textoInferior.size + "pt Impact";
+		contenidoCanvas.font = textoInferior.size + "pt ImpactBold";
 		anchoTexto = contenidoCanvas.measureText(textoInferior.text).width;
 
 		// texto demasiado grande debe ser minimisado
