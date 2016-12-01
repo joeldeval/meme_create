@@ -59,6 +59,7 @@
 		var imagenAzar = imagenes[Math.floor(Math.random() * imagenes.length)];
 
 		actualizaMeme("images/"+ imagenAzar+".jpg");
+		document.getElementById('imagenCargada').value = "images/"+ imagenAzar+".jpg";
 	};
 
 	function actualizaTexto(evento){
