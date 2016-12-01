@@ -1,11 +1,9 @@
 body {
 	text-align: center;
-	background-color: #fff;
-	background-image: url('https://fgarciac.files.wordpress.com/2015/03/19-128536.jpg');
 }
 
 .fondo{
-	background-color: #eee;
+	/*background-color: #eee;*/
 }
 .instructions {
 	margin-top: 20px;
