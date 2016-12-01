@@ -9,7 +9,7 @@
 		<title><?= $title ?></title>
 		<meta name="Creando memes rapidos" content="meme generator 2.0">
 		<meta name="Tatenda" content="meme generator 2.0">
-		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link rel="shortcut icon" href="/icono.png">
 		<!-- Latest compiled and minified CSS -->

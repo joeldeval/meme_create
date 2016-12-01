@@ -134,7 +134,7 @@ html[xmlns] .flexslider .slides {
   font-size: 40px;
   display: inline-block;
   content: ' ';
-  background: url('icon/prev.png') no-repeat;
+  background: url('../../icon/prev.png') no-repeat;
    display: block;
   width: 48px;
   height: 48px;
@@ -147,7 +147,7 @@ html[xmlns] .flexslider .slides {
   display: block;
   width: 48px;
   height: 48px;
-  background: url('icon/next.png') no-repeat;
+  background: url('../../icon/next.png') no-repeat;
 }
 /* para que aparesca siempre las flechitas*/
 .flex-direction-nav .flex-next { right: 0 !important; margin-right: -40px; opacity: 1 !important; }

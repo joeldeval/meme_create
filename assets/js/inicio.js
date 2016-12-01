@@ -36,7 +36,28 @@
 
 	window.onload = function(){ 
 		// imagen inicial
-		actualizaMeme("images/grillo.jpg");
+		var imagenes = ['badluckbrian', 
+						'chavita',
+						'cuatri',
+						'daniel',
+						'diego',
+						'grillo', 
+						'gabriel', 
+						'gil', 
+						'pedro', 
+						'yannik', 
+						'willywonka', 
+						'yes', 
+						'mante', 
+						'nopalito', 
+						'poncho', 
+						'sicario', 
+						'tona', 
+						'jamesvanderbeek', 
+						'joel'];
+		var imagenAzar = imagenes[Math.floor(Math.random() * imagenes.length)];
+
+		actualizaMeme("images/"+ imagenAzar+".jpg");
 	};
 
 	function actualizaTexto(evento){
