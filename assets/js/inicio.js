@@ -5,6 +5,8 @@
 	contenidoCanvas.textAlign = 'center';
 	contenidoCanvas.fillStyle = 'white';
 	contenidoCanvas.strokeStyle = 'black';
+	contenidoCanvas.lineWidth = 3.5;
+	contenidoCanvas.stroke();
 	var img = new Image();
 
 	// objeto de TEXTOS crea variables texto, y size
