@@ -79,7 +79,7 @@
 
 			<div class="col-md-6 abajo">
 		  	
-				<canvas id="imgMemeCanvas" width="460" height="500"></canvas>
+				<canvas id="imgMemeCanvas" width="500" height="460"></canvas>
 				<input type="hidden" id="imagenCargada" name="id" />
 
 				<a id="descargar" download-button class="btn btn-success form-control" >Descargar MEME</a>
