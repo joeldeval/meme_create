@@ -23,8 +23,10 @@
 	            </div>
 				<h4 style="font-size: 1em;">O SELECCIONA UNA PROPIA</h4>
 				<h4 style="font-size: .7em;">ÉSTA IMAGEN NO SE GUARDA EN EL CATÁLOGO</h4>
-
-				<input type="file" id="imgSubir" name="imagenSeleccionada" class="form-control" />
+				
+				<div class="container-fluid">
+					<input type="file" id="imgSubir" name="imagenSeleccionada" class="form-control padding" />
+				</div>
 
 			</div>
 			
@@ -60,42 +62,6 @@
 	  	</div>
 		
 	</div>
-<output id="list"></output>
-
-<script>
-
-  function subirImagen(evt) {
-    var imagenes = evt.target.files; // FileList object
-
-    // Loop through the FileList and render image files as thumbnails.
-    for (var i = 0, f; f = imagenes[i]; i++) {
-
-      // Only process image files.
-      if (!f.type.match('image.*')) {
-      	alert("El archivo no se cargará porque no es una imagen.");
-        continue;
-      }
-
-      var reader = new FileReader();
-
-      // Closure to capture the file information.
-      reader.onload = (function(theFile) {
-        return function(e) {
-          // Render thumbnail.
-          cargaImagenMeme(e.target.result);
-          document.getElementById('imagenCargada').value = e.target.result;
-        };
-      })(f);
-
-      // Read in the image file as a data URL.
-      reader.readAsDataURL(f);
-    }
-  }
-
-  document.getElementById('imgSubir').addEventListener('change', subirImagen, false);
-</script>
-
-
 </div>
 
 

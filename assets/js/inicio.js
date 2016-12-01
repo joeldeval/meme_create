@@ -117,6 +117,41 @@
 
 	}, false);
 
+
+/// SUBIR ARCHIVO IMAGEN ///////////////////
+	 function subirImagen(evt) {
+	  	// obtiene archivos
+	    var imagenes = evt.target.files;
+
+	    // recorre los archivos seleccionados
+	    for (var i = 0, f; f = imagenes[i]; i++) {
+
+	      // Seguira en la funcion sólo si es imagen.
+	      if (!f.type.match('image.*')) {
+	      	alert("El archivo no se cargará porque no es una imagen.");
+	        continue;
+	      }
+
+	      var reader = new FileReader();
+
+	      //Captura la informacion del archivo
+	      reader.onload = (function(theFile) {
+	        return function(e) {
+	          // asigna la ruta del archivo al canvas como imagen
+	          cargaImagenMeme(e.target.result);
+	          document.getElementById('imagenCargada').value = e.target.result;
+	        };
+	      })(f);
+
+	      // Leer en el archivo de imagen como una URL de datos.
+	      reader.readAsDataURL(f);
+	    }
+	  }
+
+  	document.getElementById('imgSubir').addEventListener('change', subirImagen, false);
+/// TERMINA SUBIR ARCHIVO IMAGEN ///////////////////
+
+
 	  $(document).ready(function () {
         //se declaran variables
         var imagenCargada = $("#imagenCargada").val();
