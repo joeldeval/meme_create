@@ -46,6 +46,7 @@
 						'gil', 
 						'pedro', 
 						'yannik', 
+						'neto', 
 						'willywonka', 
 						'yes', 
 						'mante', 
@@ -134,13 +135,19 @@
 	*/
 	document.getElementById('descargar').addEventListener('click', function() {
 		var imagen = $("#imagenCargada").val();
+		var nombreImagen = "";
 
 		if(imagen == ""){
-			imagen = "grillo.jpg"
+			nombreImagen = "grillo.jpg";
 		}
-		var fecha = new Date();
 
-	    descargarCanvas(this, 'imgMemeCanvas', "meme_"+fecha.getDate() + imagen);
+		if(imagen.indexOf('.jpg') != -1){
+			nombreImagen = imagen;
+		}else{
+			nombreImagen = "imagen_select.jpg";
+		}
+
+	    descargarCanvas(this, 'imgMemeCanvas', "meme_"+ nombreImagen);
 
 	}, false);
 
